@@ -4,7 +4,7 @@
 #'
 #' @export
 #' @import fopi
-#' @import shinybulma
+#' @import fullPage
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options
 run_fopi <- function() {

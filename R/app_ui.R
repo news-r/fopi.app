@@ -1,37 +1,44 @@
 #' @import shiny
 app_ui <- function() {
+
+  options <- list(
+    sectionsColor = c('#2f2f2f', '#2f2f2f', '#f9f7f1')
+  )
+
   tagList(
     # Leave this function for adding external resources
     golem_add_external_resources(),
     # List the first level UI elements here 
-    bulmaPage(
-      title = "Freedom of Press Index",
-      theme = "solar",
-      bulmaHero(
-        fullheight = TRUE,
-        bulmaHeroBody(
-          bulmaContainer(
-            bulmaTitle("Freedom of Press Index"),
-            bulmaSubtitle("Explore the index throughout the countries and the years.")
-          )
+    pagePiling(
+      sections.color = c('#2f2f2f', '#2f2f2f', '#f9f7f1'),
+      opts = options,
+      menu = c(
+        "Home" = "home",
+        "Map" = "map",
+        "Time series" = "ts"
+      ),
+      pageSectionImage(
+        center = TRUE,
+        img = "www/img/crowd.jpg",
+        menu = "home",
+        h1("Freedom of Press Index", class = "header shadow-dark"),
+        h3("Visualisation", class = "header shadow-dark"),
+        h4(
+          class = "shadow-light",
+          tags$a("The code", href = "https://github.com/news-r/fopi.app", target = "_blank", class = "link"),
+          "|",
+          tags$a("The API", href = "https://github.com/news-r/fopi", target = "_blank", class = "link")
         )
       ),
-      bulmaSection(
-        size = "large",
-        bulmaColumns(
-          bulmaColumn(
-            width = 9,
-            echarts4r::echarts4rOutput("trend")
-          ),
-          bulmaColumn(
-            width = 3,
-            uiOutput("country_select_generated"),
-            br(),
-            bulmaSelectInput("value", "Select metric", c("rank", "score")),
-            br(),
-            uiOutput("desc")
-          )
-        )
+      pageSection(
+        center = TRUE,
+        menu = "map",
+        h1("Map")
+      ),
+      pageSection(
+        center = TRUE,
+        menu = "ts",
+        mod_ts_ui("ts")
       )
     )
   )
@@ -46,10 +53,7 @@ golem_add_external_resources <- function(){
  
   tags$head(
     golem::activate_js(),
-    golem::favicon()
-    # Add here all the external resources
-    # If you have a custom.css in the inst/app/www
-    # Or for example, you can add shinyalert::useShinyalert() here
-    #tags$link(rel="stylesheet", type="text/css", href="www/custom.css")
+    golem::favicon(),
+    tags$link(rel="stylesheet", type="text/css", href="www/css/style.css")
   )
 }

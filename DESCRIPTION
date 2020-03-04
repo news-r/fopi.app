@@ -13,8 +13,8 @@ Imports:
     dplyr,
     magrittr,
     echarts4r,
-    shinybulma
+    fullPage
 RoxygenNote: 7.0.2
 Remotes:
   news-r/fopi,
-  RinteRface/shinybulma
+  RinteRface/fullPage
