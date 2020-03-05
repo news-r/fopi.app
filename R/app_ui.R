@@ -1,9 +1,7 @@
 #' @import shiny
 app_ui <- function() {
 
-  options <- list(
-    sectionsColor = c('#2f2f2f', '#2f2f2f', '#f9f7f1')
-  )
+  options <- list()
 
   tagList(
     # Leave this function for adding external resources
@@ -55,7 +53,7 @@ golem_add_external_resources <- function(){
     golem::activate_js(),
     golem::favicon(),
     tags$link(
-      rel = "stylesheet", href = shinythemes::shinytheme("lux")
+      rel = "stylesheet", href = shinythemes::shinytheme("sandstone")
     ),
     tags$link(rel = "stylesheet", type = "text/css", href = "www/css/style.css")
   )

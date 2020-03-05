@@ -16,12 +16,25 @@
 mod_ts_ui <- function(id){
   ns <- NS(id)
   pageContainer(
+    uiOutput(ns("country_header")),
+    br(),
     fluidRow(
       column(
         6,
         uiOutput(ns("country_select_generated"))
       ),
-      column(6, radioButtons(ns("value"), "Metric", choices = c("rank", "score"), inline = TRUE))
+      column(
+        6,
+        shinyWidgets::radioGroupButtons(
+          inputId = ns("value"),
+          label = "Metric",
+          choices = c("rank", "score"),
+          checkIcon = list(
+            yes = icon("ok",
+            lib = "glyphicon")
+          )
+        )
+      )
     ),
     echarts4r::echarts4rOutput(ns("trend"))
   )
@@ -36,22 +49,28 @@ mod_ts_ui <- function(id){
 mod_ts_server <- function(input, output, session){
   ns <- session$ns
 
-output$country_select_generated <- renderUI({
+  output$country_select_generated <- renderUI({
     cns <- fopi %>% 
       dplyr::arrange(country) %>% 
       dplyr::distinct(country) %>% 
       dplyr::pull(country)
 
-    selectInput(
+    dqshiny::autocomplete_input(
       ns("country_select"),
-      "Select a country",
-      choices = cns,
-      selected = sample(cns, 1)
+      "Search a country",
+      options = cns,
+      value = sample(cns, 1)
     )
+  })
+
+  output$country_header <- renderUI({
+    h2(input$country_select)
   })
 
   output$trend <- echarts4r::renderEcharts4r({
     req(input$country_select)
+
+    msg <- paste0(tools::toTitleCase(input$value), ", the lower the better")
 
     fopi %>% 
       dplyr::mutate(year = as.character(year)) %>% 
@@ -61,7 +80,9 @@ output$country_select_generated <- renderUI({
       echarts4r::e_line_(input$value) %>% 
       echarts4r::e_legend(FALSE) %>% 
       echarts4r::e_tooltip(trigger = "axis") %>% 
-      echarts4r::e_y_axis(inverse = TRUE)
+      echarts4r::e_y_axis(inverse = TRUE) %>% 
+      echarts4r::e_axis_labels("Years") %>% 
+      echarts4r::e_title(msg)
   })
 
   output$desc <- renderUI({

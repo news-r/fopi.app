@@ -11,10 +11,12 @@ Imports:
     shiny,
     golem,
     dplyr,
+    dqshiny,
     fullPage,
     magrittr,
     echarts4r,
-    shinythemes
+    shinythemes,
+    shinyWidgets
 RoxygenNote: 7.0.2
 Remotes:
   news-r/fopi,
