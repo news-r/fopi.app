@@ -16,11 +16,12 @@
 mod_ts_ui <- function(id){
   ns <- NS(id)
   pageContainer(
-    pageRow(
-      pageColumn(
+    fluidRow(
+      column(
+        6,
         uiOutput(ns("country_select_generated"))
       ),
-      pageColumn(radioButtons(ns("value"), "Metric", choices = c("rank", "score")), inline = TRUE)
+      column(6, radioButtons(ns("value"), "Metric", choices = c("rank", "score"), inline = TRUE))
     ),
     echarts4r::echarts4rOutput(ns("trend"))
   )

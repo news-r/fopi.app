@@ -54,6 +54,9 @@ golem_add_external_resources <- function(){
   tags$head(
     golem::activate_js(),
     golem::favicon(),
-    tags$link(rel="stylesheet", type="text/css", href="www/css/style.css")
+    tags$link(
+      rel = "stylesheet", href = shinythemes::shinytheme("lux")
+    ),
+    tags$link(rel = "stylesheet", type = "text/css", href = "www/css/style.css")
   )
 }
