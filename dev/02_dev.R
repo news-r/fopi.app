@@ -7,7 +7,7 @@
 
 ## 2.1 Add modules
 ## 
-golem::add_module( name = "ts" ) # Name of the module
+golem::add_module( name = "map" ) # Name of the module
 golem::add_module( name = "timeline" ) # Name of the module
 
 ## 2.2 Add dependencies

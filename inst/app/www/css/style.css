@@ -20,3 +20,17 @@
 .link{
   color: #247BA0 !important;
 }
+
+.light{
+  color: #f9f7f1;
+}
+
+.footer{
+  position: fixed;
+  width: 100%;
+  bottom: 5px;
+}
+
+.dark{
+  color: #2f2f2f;
+}

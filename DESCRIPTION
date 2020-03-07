@@ -7,17 +7,20 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    fopi,
-    shiny,
-    golem,
-    dplyr,
-    dqshiny,
-    fullPage,
-    magrittr,
-    echarts4r,
-    shinythemes,
-    shinyWidgets
+  emo,
+  fopi,
+  shiny,
+  golem,
+  dplyr,
+  typed,
+  tidyr,
+  fullPage,
+  magrittr,
+  echarts4r,
+  shinythemes,
+  shinyWidgets
 RoxygenNote: 7.0.2
 Remotes:
   news-r/fopi,
+  JohnCoene/typed,
   RinteRface/fullPage
