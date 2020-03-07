@@ -21,6 +21,7 @@ Imports:
   shinyWidgets
 RoxygenNote: 7.0.2
 Remotes:
+  hadley/emo,
   news-r/fopi,
   JohnCoene/typed,
   RinteRface/fullPage
