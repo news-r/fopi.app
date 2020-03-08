@@ -68,6 +68,14 @@ golem_add_external_resources <- function(){
     tags$link(
       rel = "stylesheet", href = shinythemes::shinytheme("sandstone")
     ),
-    tags$link(rel = "stylesheet", type = "text/css", href = "www/css/style.css")
+    tags$link(rel = "stylesheet", type = "text/css", href = "www/css/style.css"),
+    tags$script(async = NA, src = "https://www.googletagmanager.com/gtag/js?id=UA-74544116-1"),
+    tags$script(
+      "window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74544116-1');"
+    )
   )
 }
