@@ -1,11 +1,11 @@
 
 # fopi.app
 
+<img src="./inst/logo/logo.png" align="right" height = 250>
+
 <!-- badges: start -->
 [![Build status](https://ci.appveyor.com/api/projects/status/ag7d9c622s5sq9ee?svg=true)](https://ci.appveyor.com/project/JohnCoene/fopi-app)
 <!-- badges: end -->
-
-<img src="./inst/logo/logo.png" align="right" height = 200>
 
 An application to visualise the Freedom of Press Index, a deployed version is accessible at: [app.news-r.org/app/fopi-app](https://app.news-r.org/app/fopi-app)
 
