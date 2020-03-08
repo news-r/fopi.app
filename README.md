@@ -5,7 +5,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/ag7d9c622s5sq9ee?svg=true)](https://ci.appveyor.com/project/JohnCoene/fopi-app)
 <!-- badges: end -->
 
-An application to visualise the Freedom of Press Index.
+An application to visualise the Freedom of Press Index, a deployed version is accessible at: [app.news-r.org/app/fopi-app](https://app.news-r.org/app/fopi-app)
 
 ## Docker
 
