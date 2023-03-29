@@ -20,7 +20,7 @@ app_ui <- function() {
         center = TRUE,
         img = "www/img/reading.jpg",
         menu = "home",
-        h1(typed::typedOutput("title"), class = "header shadow-dark"),
+        h1(typedjs::typedOutput("title"), class = "header shadow-dark"),
         h3(
           class = "light footer",
           "by", tags$a("news-r", href = "https://news-r.org", class = "link"), "with", emo::ji("coffee")
